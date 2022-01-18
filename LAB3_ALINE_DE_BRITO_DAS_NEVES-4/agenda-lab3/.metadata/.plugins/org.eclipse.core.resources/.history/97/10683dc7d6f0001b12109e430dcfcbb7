@@ -1,0 +1,47 @@
+package teste;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
+import agenda.Agenda;
+
+
+public class AgendaTeste {
+
+	private Agenda agenda;
+	
+
+	@BeforeEach
+	void preparaAgenda() {
+		//Prepara inicialmente contatos para ser testados.
+		this.agenda = new Agenda();
+		this.agenda.cadastraContato(1, "Matheus", "Gaudencio","98788-8979");
+		this.agenda.cadastraContato(2, "Livia", "Sampaio","9999-0001");
+		this.agenda.cadastraContato(3, "Nazareno", "Jesus","9999-1001");
+		
+		
+		// prepara os favoritos
+		this.agenda.adicionarFavoritos(1,1);
+		this.agenda.adicionarFavoritos(2,2);
+		this.agenda.adicionarFavoritos(3,3);
+		
+		//@Test 
+		//void testalistarFavoritos() {
+			
+			//assertEquals(cadastraContato, contato1.getNome());
+			//assertEquals(cadastraContato,contato2.getNome());
+			//assertEquals(cadastraContato,contato3.getNome());
+			//}
+		
+		@Test 
+		void testalcadastraContato() {
+			
+			assertEquals("CONTATO INVALIDO",cadastraContato(10, "Matheus", "Gaudencio", null)));
+			//assertEquals(cadastraContato());
+			//assertEquals(cadastraContato());
+			}
+
+	}
+
+
+}

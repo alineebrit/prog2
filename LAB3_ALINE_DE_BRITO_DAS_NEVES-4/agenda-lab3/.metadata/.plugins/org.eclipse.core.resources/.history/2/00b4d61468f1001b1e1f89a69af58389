@@ -1,0 +1,73 @@
+package teste;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
+import agenda.Agenda;
+
+
+public class AgendaTeste {
+
+	private Agenda agenda;
+	
+
+	@BeforeEach
+	void preparaAgenda() {
+		//Prepara inicialmente contatos para ser testados.
+		this.agenda = new Agenda();
+		this.agenda.cadastraContato(1, "Matheus", "Gaudencio","98788-8979");
+		this.agenda.cadastraContato(2, "Livia", "Sampaio","9999-0001");
+		this.agenda.cadastraContato(3, "Nazareno", "Jesus","9999-1001");
+		
+		
+		// prepara os favoritos
+		this.agenda.adicionarFavoritos(1,1);
+		this.agenda.adicionarFavoritos(2,2);
+		this.agenda.adicionarFavoritos(3,3);
+		
+	}
+	
+	@Test 
+	void testaadicionarFavoritos() {
+		
+		assertEquals(null, agenda.adicionarFavoritos(1,1));
+		assertEquals("CONTATO FAVORITADO NA POSIÇÃO", agenda.adicionarFavoritos(9, 9));
+		assertEquals(null, agenda.adicionarFavoritos(12,12));
+		
+		}
+
+	
+		@Test 
+		void testalistarFavoritos() {
+			
+			assertEquals("1- Matheus Gaudencio/n2- Livia Sampaio/n3- Nazareno Jesus", agenda.listarFavoritos());
+		
+		}
+		
+		@Test 
+		void testaexibirContato() {
+			
+			assertEquals("❤️ Nazareno Jesus/n 9999-1001 bonito legal", agenda.exibirContato(3));
+		
+		}
+		
+		@Test 
+		void testatemEmFavoritos() {
+			
+			assertEquals("true" , agenda.temEmFavoritos(Matheus));
+		
+		}
+		
+		
+		@Test 
+		void testalcadastraContato() {
+			
+			assertEquals("CONTATO INVALIDO",agenda.cadastraContato(10, "Matheus", "Gaudencio", ""));
+			assertEquals("CONTATO INVALIDO", agenda.cadastraContato(11, "", "Sampaio", "9999-0001"));
+			assertEquals("CONTATO JA CADASTRADO", agenda.cadastraContato(1, "Matheus", "Gaudencio","98788-8979"));
+			assertEquals("CADASTRO COM SUCESSO", agenda.cadastraContato(4, "Aline", "Brito", "996000281"));
+			assertEquals("POSIÇÃO INVÁLIDA", agenda.cadastraContato(102, "Rebecca", "Sousa", "899999999"));
+	}
+
+
+}

@@ -1,0 +1,101 @@
+package agenda;
+
+/**
+ * Classe responsavel por organizar o contato, de acordo com o nome, sobrenome, telefone, tag e favorito
+ * @author Aline de Brito das Neves
+ *
+ */
+public class Contato {
+	private String nome;
+	private String sobrenome;
+	private String telefone;
+	private String[] tags;
+	
+	private static final int NUMERO_DE_TAGS = 5;
+	private int contadorDeTags;
+	
+	/**
+	 * Constroi um contato a partir do nome, sobrenome e telefone.
+	 * @param nome 
+	 * @param sobrenome
+	 * @param telefone
+	 */
+	public Contato(String nome, String sobrenome, String telefone) {
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.telefone = telefone;
+		this.tags = new String[NUMERO_DE_TAGS];
+		this.contadorDeTags = 0;
+	}
+	
+	/** Retorna a String que representa o nome no contato.
+	 * 
+	 * @return a representação em String do nome.
+	 */
+	public String getNome(){
+		return nome;
+	}
+	
+	/** Retorna a String que representa o sobrenome no contato.
+	 * 
+	 * @return a representação em String do sobrenome.
+	 */
+	public String getSobrenome(){
+		return sobrenome;
+	}
+	
+	/** Retorna a String que representa o telefone no contato.
+	 * 
+	 * @return a representação em String do telefone.
+	 */
+	public String getTelefone(){
+		return telefone;
+	}
+	
+	/** Retorna a String em concatenacao do nome mais um especo e sobrenome.
+	 * 
+	 * @return a String do nome com o sobrenome.
+	 */
+	public String toString() {
+		return nome + " " + sobrenome;
+	}
+	
+	/** Retorna a String "Adicionada em tags!", caso a tag seja adicionada, e se posicao de tag for de 1 ate 5.
+	 *  
+	 * @param posicaoEmTags referente a posicao em tags do contato.
+	 * @param tag String referente a tag.
+	 * @return a representacao da String se ela esta adicionada em tags.
+	 */
+	public String adicionaTag(int posicaoEmTags, String tag) {
+		if(posicaoEmTags >= 1 && posicaoEmTags <= 5) {
+			tags[posicaoEmTags - 1] = tag;
+			this.contadorDeTags += 1;
+			return "Adicionada em tags!";
+		}
+		return null;
+	}
+	
+	/** Retorna a String que representa as tags no contato.
+	 * 
+	 * @return a String que representa as tags.
+	 */
+	public String[] getTags() {
+		return tags;
+	}
+	
+	/** Retorna a String de tags formatadas, ja que se ela for diferente de null, o for vai percorrer o array e adicionar na String a tag formatada.
+	 * 
+	 * @return a String que representa as tags formatadas.
+	 */
+	public String listarTags() {
+		String tagsFormatadas = "";
+		for(int i = 0; i < 5; i++) {
+			if (tags[i] != null) {
+					tagsFormatadas += tags[i] + " ";
+				
+			
+			}
+		}	
+		return tagsFormatadas.trim();
+		}
+}

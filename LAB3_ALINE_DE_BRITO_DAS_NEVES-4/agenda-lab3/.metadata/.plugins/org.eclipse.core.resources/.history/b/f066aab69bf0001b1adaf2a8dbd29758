@@ -1,0 +1,31 @@
+package teste;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
+import agenda.Agenda;
+import agenda.Contato;
+
+public class AgendaTeste {
+
+	
+	private Agenda contato1;
+	private Agenda contato2;
+	private Agenda contato3;
+
+	@BeforeEach
+	void preparaContato() {
+		//Prepara inicialmente contatos para ser testados.
+		this.contato1 = new Contato("Matheus", "Gaudencio", "98788-8979");
+		this.contato2 = new Contato("Livia", "Sampaio", "9999-0001");
+		this.contato3 = new Contato("Nazareno", "Jesus", "9999-1001");
+		
+		// prepara os favoritos
+		this.contato1.adicionaFavorito(1,1);
+		this.contato2.adicionaFavorito(2,1);
+		this.contato3.adicionaFavorito(3,1);
+
+	}
+
+
+}

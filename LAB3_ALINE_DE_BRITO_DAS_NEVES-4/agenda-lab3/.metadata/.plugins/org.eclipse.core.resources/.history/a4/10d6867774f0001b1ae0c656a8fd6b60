@@ -1,0 +1,62 @@
+package teste;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import agenda.Contato;
+
+public class ContatoTeste {
+	
+	private Contato contato1;
+	private Contato contato2;
+	private Contato contato3;
+
+	@BeforeEach
+	void preparaContato() {
+		//Prepara inicialmente contatos para ser testados.
+		this.contato1 = new Contato("Matheus", "Gaudencio", "98788-8979");
+		this.contato2 = new Contato("Livia", "Sampaio", "9999-0001");
+		this.contato3 = new Contato("Nazareno", "Jesus", "9999-1001");
+	
+	}
+
+
+	@Test 
+	void testaGetNome() {
+		
+		//Verifica se getNome acessa corretamente os nomes.
+		String nome_esperado1 = "Matheus";
+		String nome_esperado2 = "Livia";
+		String nome_esperado3 = "Nazareno";
+
+		assertEquals(nome_esperado1,contato1.getNome());
+		assertEquals(nome_esperado2,contato2.getNome());
+		assertEquals(nome_esperado3,contato3.getNome());
+		}
+	
+	@Test 
+	void testaGetSobrenome() {
+		
+		//Verifica se getNome acessa corretamente os nomes.
+		String nome_esperado1 = "Gaudencio";
+		String nome_esperado2 = "Sampaio";
+		String nome_esperado3 = "Jesus";
+
+		assertEquals(nome_esperado1,contato1.getSobrenome());
+		assertEquals(nome_esperado2,contato2.getSobrenome());
+		assertEquals(nome_esperado3,contato3.getSobrenome());
+		}
+
+	@Test 
+	void testaGetTelefone() {
+		
+		//Verifica se getNome acessa corretamente os nomes.
+		String nome_esperado1 = "98788-8979";
+		String nome_esperado2 = "9999-0001";
+		String nome_esperado3 = "9999-1001";
+
+		assertEquals(nome_esperado1,contato1.getTelefone());
+		assertEquals(nome_esperado2,contato2.getTelefone());
+		assertEquals(nome_esperado3,contato3.getTelefone());
+		}
+	
+}

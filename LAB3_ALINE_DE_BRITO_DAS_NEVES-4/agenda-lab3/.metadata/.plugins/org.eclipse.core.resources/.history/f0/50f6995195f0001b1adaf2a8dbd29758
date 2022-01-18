@@ -1,0 +1,61 @@
+package agenda;
+
+public class Contato {
+	private String nome;
+	private String sobrenome;
+	private String telefone;
+	private String[] tags;
+	
+	private static final int NUMERO_DE_TAGS = 5;
+	
+	public Contato(String nome, String sobrenome, String telefone) {
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.telefone = telefone;
+		this.tags = new String[NUMERO_DE_TAGS];
+	}
+	
+	public String getNome(){
+		return nome;
+	}
+	
+	public String getSobrenome(){
+		return sobrenome;
+	}
+	
+	public String getTelefone(){
+		return telefone;
+	}
+	
+	public String toString() {
+		return nome + " " + sobrenome;
+	}
+	
+	public String adicionaTag(int posicaoEmTags, String tag) {
+		if(posicaoEmTags >= 1 && posicaoEmTags <= 5) {
+			tags[posicaoEmTags] = tag;
+			return "Adicionada em tags!";
+		}
+		return null;
+	}
+	
+	public String[] getTags() {
+		return tags;
+	}
+	
+	public String listarTags() {
+		String tagsFormatadas = "";
+		for(int i = 0; i < tags.length; i++) {
+			if (tags[i] != null) {
+				if (i < tags.length - 1) {
+					tagsFormatadas += tags[i] + " ";
+				} 
+				else {
+					tagsFormatadas += tags[i];
+				}
+			} 
+		  
+		}
+		return tagsFormatadas;
+	}
+}
